@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script src="https://unpkg.com/react@17/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js" crossorigin></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+
+    <div id="app"></div>
+
+    <script type="text/babel">
+        class App extends React.Component {
+            constructor() {
+                super();
+
+                this.state = {
+                    isLogin: true
+                }
+            }
+
+            render() {
+                const { isLogin } = this.state
+
+                return (
+                    <div>
+                        <h2> {isLogin ? "欢迎回来" : "欢迎登陆"}</h2>
+
+                        <button onClick={this.loginClick}> {isLogin ? "推出" : "登陆"} </button>
+
+                        {/*方式1*/}
+                        <h2> {isLogin && "Hello Ansel"}</h2>
+                        {/*方式2*/}
+                        {isLogin && <h2> {"Hello Ansel"}</h2>}
+                    </div>
+                )
+            }
+
+            loginClick = () => {
+                this.setState({
+                    isLogin: !this.state.isLogin
+                });
+            }
+        }
+
+        ReactDOM.render(
+            <App />,
+            document.getElementById("app")
+        )
+
+    </script>
+</body>
+
+</html>

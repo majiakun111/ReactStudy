@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script src="https://unpkg.com/react@17/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js" crossorigin></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+
+    <div id="hw"></div>
+
+    <script type = "text/babel">
+        class App extends React.Component {
+            constructor() {
+                super();
+                this.state = {
+                    moives : ["大话西游", "盗墓笔记", "洛神"] 
+                }
+            }
+
+            render() {
+                let liArr = [];
+                for(let moive of this.state.moives) {
+                    liArr.push(<li>{moive}</li>)
+                }
+
+                return (
+                    <div>
+                        <ul>
+                            {liArr}    
+                        </ul>
+
+                        <ul>
+                           {
+                            this.state.moives.map((item, index, arr) => {
+                                return (
+                                    <li className="item" 
+                                    onClick={(event) => {
+                                        this.liClick(item, index, event)
+                                    }}>
+                                    {item}
+                                    </li>
+                                )
+                            })
+                           }
+                        </ul>
+                    </div>
+                )
+            }
+
+            liClick = (item, index, event) => {
+                console.log("点击了:", item, index, event);
+            }
+
+        }
+
+        ReactDOM.render(
+            <App/>,
+            document.getElementById("hw")
+        )
+
+    </script>
+</body>
+</html>

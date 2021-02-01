@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 本地 -->
+    <script src="https://unpkg.com/react@17/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js" crossorigin></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+
+    <div id="hw"></div>
+    
+    <script type = "text/babel">
+        class App extends React.Component {
+            constructor() {
+                super();
+                this.state = {
+                    message : "Hello World" 
+                }
+            }
+
+            render() {
+                return (
+                    <div> 
+                        <h1>{this.state.message}</h1>
+                        <button onClick={this.btnClick.bind(this)}>Change Title</button>
+                    </div>
+                )
+            }
+
+            btnClick() {
+                this.setState({
+                    message : "Hello React" 
+                })
+            }
+        }
+
+        ReactDOM.render(
+            <App/>,
+            document.getElementById("hw")
+        )
+
+    </script>
+</body>
+</html>

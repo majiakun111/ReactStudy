@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script src="https://unpkg.com/react@17/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js" crossorigin></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+
+    <div id="hw"></div>
+    <script type = "text/babel">
+        let message = "Hello World"
+
+        function btnClick() {
+            message = "Hello React"
+            render();
+        }
+
+        function render() {
+            ReactDOM.render(
+                <div>
+                    <h1>{message}</h1>
+                    <button onClick={btnClick}>ChangTitle</button>
+                </div>,
+                document.getElementById("hw")
+            )
+        }
+
+        render();
+    </script>
+</body>
+</html>
