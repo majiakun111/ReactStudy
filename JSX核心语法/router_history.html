@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div>
+        <a href="/home">Home</a> 
+        <a href="/about">About</a> 
+
+        <div class="router-view" ></div>
+    </div>
+
+    <script>
+        const routerViewElement = document.getElementsByClassName("router-view")[0]
+       
+        const aElements = document.getElementsByTagName("a")
+        for (const aElement of aElements) {
+            aElement.addEventListener("click", (event) => {
+                event.preventDefault();
+                const href = aElement.getAttribute("href");
+                history.pushState({}, "", href);
+
+                urlChange();
+            })   
+        }
+
+        window.addEventListener('popstate',urlChange);
+
+        function urlChange() {
+            switch(location.pathname) {
+                case "/home": {
+                    routerViewElement.innerHTML = "Home"
+                    break;
+                }
+                case "/about": {
+                    routerViewElement.innerHTML = "About"
+                    break;
+                }
+                default: {
+                    routerViewElement.innerHTML = ""
+                }
+            }
+        }
+    </script>
+</body>
+
+</html>
