@@ -5,7 +5,6 @@ import Me from '../pages/me';
 const routes = [
   {
     path: "/",
-    exact: true,
     component: Home,
     routes: [
         {

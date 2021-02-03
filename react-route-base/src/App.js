@@ -35,17 +35,17 @@ class Recommend extends Component {
     render() {
         return (
             <div>
-                Recommend
+                Recommend123
             </div>
         );
     }
 }
 
-class Favorite extends Component {
+class Music extends Component {
     render() {
         return (
             <div>
-                Favorite
+               Music
             </div>
         );
     }
@@ -56,10 +56,10 @@ class Home extends Component {
         return (
             <div>
                 <NavLink exact to="/" activeStyle={{ color: "purple", fontSize: "30px" }}>Recommend</NavLink>
-                <NavLink to="/home/music" activeStyle={{ color: "purple", fontSize: "30px" }}>Favorite</NavLink>
-            
-                <Route exact path="/" component={Recommend}></Route>
-                <Route path="/home/music" component={Favorite}></Route>
+                <NavLink  to="/home/music" activeStyle={{ color: "purple", fontSize: "30px" }}>Music</NavLink>
+                
+                <Route  exact path="/" component={Recommend}></Route>
+                <Route  path="/home/music" component={Music}></Route>
             </div>
         );
     }
@@ -73,7 +73,7 @@ class About extends Component {
                 <NavLink to="/about/history" activeStyle={{ color: "purple", fontSize: "30px" }}>History</NavLink>
                 <NavLink to="/about/contact" activeStyle={{ color: "purple", fontSize: "30px" }}>Contact</NavLink>
 
-                <Route exact path="/about" component={Culture}></Route>
+                <Route path="/about" component={Culture}></Route>
                 <Route path="/about/history" component={History}></Route>
                 <Route path="/about/contact" component={Contact}></Route>
             </div>
@@ -150,7 +150,7 @@ class App extends Component {
                     <NavLink to="/about" activeStyle={{ color: "red", fontSize: "30px" }}>About</NavLink>
                     <NavLink to="/me" activeStyle={{ color: "red", fontSize: "30px" }}>Me</NavLink>
 
-                    <Route exact path="/" component={Home}></Route>
+                    <Route path="/" component={Home}></Route>
                     <Route path="/detail" component={Detail}></Route>
                     <Route path="/about" component={About}></Route>
                     <Route path="/me" component={Me}></Route>

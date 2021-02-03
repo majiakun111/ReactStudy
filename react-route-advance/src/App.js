@@ -3,26 +3,26 @@ import { renderRoutes } from 'react-router-config';
 import routes from './router';
 
 import {
-  NavLink,
-  withRouter
+    NavLink,
+    withRouter
 } from 'react-router-dom';
 
 import './App.css';
 
 class App extends PureComponent {
-  render() {
-    return (
-      <div>
-        <NavLink exact to="/about" activeClassName="link-active">Home</NavLink>
-        <NavLink to="/about/history" activeClassName="link-active">About</NavLink>
-        <NavLink to="/about/contact" activeClassName="link-active">Me</NavLink>
+    render() {
+        return (
+            <div>
 
+                <NavLink exact to="/" activeClassName="about-active">Home</NavLink>
+                <NavLink to="/about" activeClassName="about-active">About</NavLink>
+                <NavLink to="/me" activeClassName="about-active">Me</NavLink>
 
-        {renderRoutes(routes)}
+                {renderRoutes(routes)}
 
-      </div>
-    )
-  }
+            </div>
+        )
+    }
 }
 
 export default withRouter(App);
